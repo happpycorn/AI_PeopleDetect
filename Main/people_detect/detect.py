@@ -3,9 +3,10 @@ import numpy as np
 import cv2
 
 class PeopleCounter:
-    def __init__(self, model_path: str = "yolov8n.pt"):
+    def __init__(self, model_path: str = "yolov8n.pt", using_NPU: bool = False):
 
         self.model = YOLO(model_path)
+        self.using_NPU = using_NPU
         print(f"[INFO] YOLO model loaded from '{model_path}'")
 
     def count(self, image: np.ndarray) -> tuple[int, np.ndarray]:
