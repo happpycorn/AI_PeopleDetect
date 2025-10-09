@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+
+# VS Code
+.vscode/
+*.code-workspace
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Docker
+*.log
+*.pid
+docker-compose.override.yml
+docker-compose.override.yaml
+
+# Python package builds
+build/
+dist/
+*.egg-info/
