@@ -1,0 +1,5 @@
+docker run -it --rm \
+  --platform linux/amd64 \
+  -v /Users/corn/Documents/Program/AI_PeopleDetect/Docker_Test:/app \
+  -p 5050:5000 \
+  kneron/toolchain:latest
