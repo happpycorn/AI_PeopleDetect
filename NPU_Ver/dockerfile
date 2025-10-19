@@ -1,14 +1,18 @@
-FROM python:3.11-slim
+# docker build -t my_onnx_app .   
+# docker run --rm -it -v ./data:/workspace/data my_onnx_app
 
-WORKDIR /app
+FROM kneron/toolchain:latest
+
+WORKDIR /workspace
 
 COPY requirements.txt ./
-RUN pip install -r requirements.txt
-
+RUN /workspace/miniconda/envs/onnx1.13/bin/pip install -r requirements.txt
 RUN apt-get update && apt-get install -y libgl1 libglib2.0-0
 
-COPY . .
+COPY opt_onnx.py onnx_tnpu.py constant.py ./
+COPY run.sh ./
+COPY test.jpg ./
 
-EXPOSE 5000
+RUN chmod +x run.sh
 
-CMD ["python", "app.py"]
+CMD ["./run.sh"]

@@ -1,7 +1,0 @@
-FROM kneron/toolchain:latest
-
-WORKDIR /app
-
-COPY . .
-
-CMD ["python", "opt_onnx.py"]
