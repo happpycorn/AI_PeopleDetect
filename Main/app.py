@@ -14,7 +14,7 @@ lock = threading.Lock()  # 避免同時讀寫衝突
 AWAIT_TIME = 1
 
 cam = Camera()
-counter = PeopleCounter("yolov8n.pt")
+counter = PeopleCounter(using_pt=False, model_path="yolov8n.onnx")
 
 def update_loop():
     global latest_frame, latest_count
