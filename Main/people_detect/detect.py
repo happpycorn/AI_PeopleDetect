@@ -64,6 +64,7 @@ class OnnxModule:
         self.net.setInput(blob)
         outputs = self.net.forward()
         outputs = np.squeeze(outputs)
+        print(outputs.T.shape)
 
         boxes, confidences, class_ids = [], [], []
         for detection in outputs.T:  # YOLOv8: (84, N)
